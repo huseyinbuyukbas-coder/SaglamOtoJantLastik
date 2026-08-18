@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeftRight, CheckCircle2, ShieldCheck, Wrench } from 'lucide-react';
+import { ArrowLeftRight, CheckCircle2, Wrench } from 'lucide-react';
 import { getWhatsAppUrl } from '../data/businessData';
+import bentRimImg from '../assets/images/bent_car_rim_1787081394690.jpg';
+import straightenedRimImg from '../assets/images/straightened_rim_1787081406542.jpg';
 
 export const BeforeAfterRimSlider: React.FC = () => {
   const [sliderPos, setSliderPos] = useState(50);
@@ -29,32 +31,31 @@ export const BeforeAfterRimSlider: React.FC = () => {
           <div className="relative w-full h-[320px] sm:h-[420px] overflow-hidden select-none border border-white/10">
             
             {/* AFTER Image (Background) */}
-            <div className="absolute inset-0 w-full h-full bg-[#111111] flex items-center justify-center">
+            <div className="absolute inset-0 w-full h-full bg-[#111111]">
               <img
-                src="/src/assets/images/straightened_rim_1787081406542.jpg"
+                src={straightenedRimImg}
                 alt="Düzeltilmiş Sonraki Jant"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover select-none"
               />
-              <div className="absolute top-4 right-4 bg-[#25D366] text-white font-black px-3 py-1 text-xs tracking-wider uppercase border border-white/10 flex items-center gap-1.5 z-10">
+              <div className="absolute top-4 right-4 bg-[#25D366] text-white font-black px-3 py-1 text-xs tracking-wider uppercase border border-white/10 flex items-center gap-1.5 z-10 shadow-lg">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>SONRA: DÜZELTİLMİŞ JANT</span>
               </div>
             </div>
 
-            {/* BEFORE Image (Clipped Layer) */}
+            {/* BEFORE Image (Clipped Layer with clipPath) */}
             <div
-              className="absolute top-0 bottom-0 left-0 overflow-hidden bg-black z-10"
-              style={{ width: `${sliderPos}%` }}
+              className="absolute inset-0 w-full h-full select-none z-10 pointer-events-none"
+              style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img
-                src="/src/assets/images/bent_car_rim_1787081394690.jpg"
+                src={bentRimImg}
                 alt="Eğilmiş Önceki Jant"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover max-w-none"
-                style={{ width: '100%', minWidth: '100%', height: '100%' }}
+                className="w-full h-full object-cover select-none"
               />
-              <div className="absolute top-4 left-4 bg-red-600 text-white font-black px-3 py-1 text-xs tracking-wider uppercase border border-white/10 flex items-center gap-1.5 z-10 whitespace-nowrap">
+              <div className="absolute top-4 left-4 bg-red-600 text-white font-black px-3 py-1 text-xs tracking-wider uppercase border border-white/10 flex items-center gap-1.5 z-10 shadow-lg whitespace-nowrap">
                 <Wrench className="w-3.5 h-3.5" />
                 <span>ÖNCE: HASARLI / EĞİLMİŞ</span>
               </div>
@@ -62,10 +63,10 @@ export const BeforeAfterRimSlider: React.FC = () => {
 
             {/* Divider Line & Handle */}
             <div
-              className="absolute top-0 bottom-0 w-1 bg-red-600 cursor-ew-resize"
+              className="absolute top-0 bottom-0 w-1 bg-red-600 z-20 pointer-events-none"
               style={{ left: `${sliderPos}%` }}
             >
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 bg-red-600 text-white border-2 border-white flex items-center justify-center shadow-xl">
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 bg-red-600 text-white border-2 border-white flex items-center justify-center shadow-2xl">
                 <ArrowLeftRight className="w-4 h-4" />
               </div>
             </div>
@@ -77,7 +78,7 @@ export const BeforeAfterRimSlider: React.FC = () => {
               max="100"
               value={sliderPos}
               onChange={(e) => setSliderPos(Number(e.target.value))}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
               aria-label="Önce Sonra Karşılaştırma Kaydırıcısı"
             />
           </div>
