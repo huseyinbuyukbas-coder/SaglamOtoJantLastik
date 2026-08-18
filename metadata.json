@@ -1,0 +1,6 @@
+{
+  "name": "Sağlam Oto Jant Lastik Beylikdüzü",
+  "description": "Beylikdüzü'nde 2017'den beri jant, lastik, balans, tamir ve oto servis hizmetleri. Güvenilir usta işi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

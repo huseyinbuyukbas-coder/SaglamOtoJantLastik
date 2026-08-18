@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0F0F0F;
+    color: #FFFFFF;
+  }
+  
+  h1, h2, h3, h4, .font-tech {
+    font-family: 'Chakra Petch', sans-serif;
+  }
+}
+
+/* Sleek Interface theme utilities */
+.bg-sleek-dark {
+  background-color: #0F0F0F;
+}
+
+.bg-sleek-panel {
+  background-color: #151515;
+}
+
+.bg-sleek-card {
+  background-color: #1A1A1A;
+}
+
+.border-sleek {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+
